@@ -3,13 +3,16 @@ using System.Collections;
 
 public class MenuController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public Animator anim;
+
+	public void OpenInventory(){
+		bool temp = anim.GetBool ("Open");
+		if (!temp) {
+			anim.SetBool ("Open", true);
+		}
+		else {
+			anim.SetBool("Open",false);
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
