@@ -6,9 +6,10 @@ public class SpawnObject : MonoBehaviour {
 	static GameObject spawningObject;
 	GameObject spawnedObject;
 	public Camera cam;
+	public bool BuildMode;
 
 	void Update () {
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0)&&spawningObject!=null) {
 			Spawn();
 		}
 	}

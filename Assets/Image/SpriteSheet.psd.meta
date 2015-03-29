@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 923dfc07e861dee4bb6931e1663db9a9
-timeCreated: 1427410760
+timeCreated: 1427665938
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -50,7 +50,11 @@ TextureImporter:
   spritePixelsToUnits: 1
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -2
+    compressionQuality: 50
   spriteSheet:
     sprites:
     - name: Character
@@ -87,9 +91,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 480
-        width: 32
-        height: 32
+        y: 496
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
