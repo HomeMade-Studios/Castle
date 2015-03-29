@@ -1,13 +1,11 @@
 fileFormatVersion: 2
-guid: 923dfc07e861dee4bb6931e1663db9a9
-timeCreated: 1427665938
+guid: c469ec82323d54b41a62e28900bc6e9f
+timeCreated: 1427672450
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Character
-    21300002: Table
-    21300004: Chair
-    21300006: Wall
+    21300000: SpriteSheetObject_0
+    21300002: SpriteSheetObject_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,41 +55,21 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: Character
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Table
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 480
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Chair
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 464
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Wall
+    - name: SpriteSheetObject_0
       rect:
         serializedVersion: 2
         x: 0
         y: 496
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSheetObject_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
         width: 16
         height: 16
       alignment: 0
