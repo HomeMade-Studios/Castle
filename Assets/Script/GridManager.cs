@@ -5,7 +5,7 @@ public class GridManager : MonoBehaviour {
 
 	public GameObject Cell;
 	float CellSize=32;
-	public bool BuildMode;
+	public bool ConstructMode;
 	public Sprite Wall;
 	public Camera cam;
 
@@ -15,7 +15,7 @@ public class GridManager : MonoBehaviour {
 	}
 
 	void Update(){
-		if (BuildMode && Input.GetMouseButtonDown (0)) {
+		if (ConstructMode && Input.GetMouseButtonDown (0)) {
 			ChangeWall();
 		}
 	}
@@ -23,7 +23,7 @@ public class GridManager : MonoBehaviour {
 	public void Create(){
 		for (int i=0; i<=43; i++) {
 			for (int j=0; j<=22; j++) {
-				Instantiate(Cell,new Vector3(CellSize*i-687,j*CellSize-113),this.transform.rotation);
+				Instantiate(Cell,new Vector3(CellSize*i-687,j*CellSize+15),this.transform.rotation);
 			}
 		}
 	}

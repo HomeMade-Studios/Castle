@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SpawnObject : MonoBehaviour {
 
-	static GameObject spawningObject;
+	public GameObject spawningObject;
 	GameObject spawnedObject;
 	public Camera cam;
 	public bool BuildMode;
@@ -25,7 +25,7 @@ public class SpawnObject : MonoBehaviour {
 		spawnedObject.GetComponent<Collider2D> ().isTrigger = false;
 	}
 
-	public static void SetSpawningObject( GameObject ObjectToSpawn){
+	public void SetSpawningObject( GameObject ObjectToSpawn){
 		spawningObject = ObjectToSpawn;
 	}
 }
