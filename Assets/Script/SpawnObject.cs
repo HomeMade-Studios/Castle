@@ -9,7 +9,7 @@ public class SpawnObject : MonoBehaviour {
 	public bool BuildMode;
 
 	void Update () {
-		if (Input.GetMouseButtonDown (0)&&spawningObject!=null) {
+		if (Input.GetMouseButtonDown (0)&&spawningObject!=null&&BuildMode) {
 			Spawn();
 		}
 	}
@@ -17,12 +17,7 @@ public class SpawnObject : MonoBehaviour {
 	void Spawn(){
 		Vector3 spawn=cam.ScreenToWorldPoint (Input.mousePosition);
 		spawn.z=0;
-		spawnedObject = (GameObject)Instantiate (spawningObject, spawn, Quaternion.Euler (Vector3.zero));
-	}
-
-	public void SaveSpawnedObject(){
-		spawnedObject.GetComponent<Rigidbody2D> ().gravityScale = 50;
-		spawnedObject.GetComponent<Collider2D> ().isTrigger = false;
+		Instantiate (spawningObject, spawn, Quaternion.Euler (Vector3.zero));
 	}
 
 	public void SetSpawningObject( GameObject ObjectToSpawn){
