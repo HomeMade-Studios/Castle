@@ -4,12 +4,10 @@ using System.Collections;
 public class MenuController : MonoBehaviour {
 
 	public Animator anim;
-	GameObject buildMenu, inventoryMenu, craftMenu;
+	public GameObject buildMenu, inventoryMenu, craftMenu;
 
 	void Start (){
-		buildMenu = GameObject.FindGameObjectWithTag ("BuildMenu");
-		craftMenu = GameObject.FindGameObjectWithTag ("CraftMenu");
-		inventoryMenu = GameObject.FindGameObjectWithTag ("InventoryMenu");
+
 	}
 
 	public void OpenInventoryMenu(){

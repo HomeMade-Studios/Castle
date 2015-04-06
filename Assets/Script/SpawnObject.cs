@@ -12,6 +12,7 @@ public class SpawnObject : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)&&spawningObject!=null) {
 			Spawn();
 		}
+		print (spawningObject);
 	}
 	 
 	void Spawn(){
