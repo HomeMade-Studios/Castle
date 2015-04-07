@@ -11,7 +11,6 @@ public class ObjectManager : MonoBehaviour {
 		gameObject.GetComponent<Rigidbody2D> ().gravityScale = 50;
 		gameObject.GetComponent<Collider2D> ().isTrigger = false;
 		SpawnObject.EnableBuildMode ();
-		print ("Pene");
 	}
 
 	public void Flip(){
