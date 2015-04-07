@@ -4,7 +4,7 @@ using System.Collections;
 public class SpawnObject : MonoBehaviour {
 
 	public static GameObject spawningObject;
-	public static GameObject spawnedObject;
+	public GameObject spawnedObject;
 	public Camera cam;
 	public bool BuildMode;
 
