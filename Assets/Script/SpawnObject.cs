@@ -3,8 +3,8 @@ using System.Collections;
 
 public class SpawnObject : MonoBehaviour {
 
-	public GameObject spawningObject;
-	GameObject spawnedObject;
+	public static GameObject spawningObject;
+	public static GameObject spawnedObject;
 	public Camera cam;
 	public bool BuildMode;
 
@@ -20,7 +20,7 @@ public class SpawnObject : MonoBehaviour {
 		Instantiate (spawningObject, spawn, Quaternion.Euler (Vector3.zero));
 	}
 
-	public void SetSpawningObject( GameObject ObjectToSpawn){
+	public static void SetSpawningObject( GameObject ObjectToSpawn){
 		spawningObject = ObjectToSpawn;
 	}
 }
