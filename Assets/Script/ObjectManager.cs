@@ -15,10 +15,11 @@ public class ObjectManager : MonoBehaviour {
 	}
 
 	public void Flip(){
-		transform.rotation.eulerAngles.Set (
-			transform.rotation.eulerAngles.x, 
-			transform.rotation.eulerAngles.y * -1, 
-			transform.rotation.eulerAngles.z);
+		transform.rotation.Set (
+			transform.rotation.x, 
+			180f, 
+			transform.rotation.z,
+			transform.rotation.w);
 	}
 
 	public void Delete(){
