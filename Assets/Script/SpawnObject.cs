@@ -6,7 +6,7 @@ public class SpawnObject : MonoBehaviour {
 	public static GameObject spawningObject;
 	public GameObject spawnedObject;
 	public Camera cam;
-	public bool BuildMode;
+	public static bool BuildMode;
 
 	void Update () {
 		if (Input.GetMouseButtonDown (0)&&spawningObject!=null&&BuildMode) {
@@ -22,5 +22,17 @@ public class SpawnObject : MonoBehaviour {
 
 	public static void SetSpawningObject( GameObject ObjectToSpawn){
 		spawningObject = ObjectToSpawn;
+	}
+
+	public void SetBuildMode(bool Bool){
+		BuildMode = Bool;
+	}
+
+	public static void EnableBuildMode(){
+		BuildMode=true;
+	}
+
+	public static void DisableBuildMode(){
+		BuildMode = false;
 	}
 }
