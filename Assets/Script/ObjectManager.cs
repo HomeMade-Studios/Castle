@@ -8,8 +8,8 @@ public class ObjectManager : MonoBehaviour {
 	}
 	
 	public void SaveObject(){
-		this.gameObject.GetComponent<Rigidbody2D> ().gravityScale = 50;
-		this.gameObject.GetComponent<Collider2D> ().isTrigger = false;
+		gameObject.GetComponent<Rigidbody2D> ().gravityScale = 50;
+		gameObject.GetComponent<Collider2D> ().isTrigger = false;
 		SpawnObject.EnableBuildMode ();
 		print ("Pene");
 	}
@@ -23,6 +23,7 @@ public class ObjectManager : MonoBehaviour {
 	}
 
 	public void Delete(){
+		SpawnObject.EnableBuildMode ();
 		Destroy (this.gameObject);
 	}
 }
