@@ -12,7 +12,6 @@ public class SpawnObject : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)&&spawningObject!=null) {
 			Spawn();
 		}
-		print (spawningObject);
 	}
 	 
 	void Spawn(){
@@ -26,7 +25,7 @@ public class SpawnObject : MonoBehaviour {
 		spawnedObject.GetComponent<Collider2D> ().isTrigger = false;
 	}
 
-	public static void SetSpawningObject( GameObject ObjectToSpawn){
+	public static void SetSpawningObject(GameObject ObjectToSpawn){
 		spawningObject = ObjectToSpawn;
 	}
 }

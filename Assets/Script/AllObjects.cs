@@ -14,16 +14,17 @@ public class AllObjects : MonoBehaviour {
 		
 	}
 
-	public GameObject GetObjectFromList(string objectName){
-		print ("chair");
+	public static void SelectObjectToSpawnFromList(string objectName){
+		SpawnObject.SetSpawningObject(GameObject.FindGameObjectWithTag("GameController").GetComponent<AllObjects>().ReturnObjectFromList(objectName));
+	}
+
+	GameObject ReturnObjectFromList(string objectName){
 		switch (objectName) {
-		case "chair":
-
-			return chair;
-		case "table":
-			return table;
+			case "chair":
+				return chair;
+			case "table":
+				return table;
 		}
-
 		return null;
 	}
 }
