@@ -3,8 +3,10 @@ using System.Collections;
 
 public class ObjectManager : MonoBehaviour {
 
+	GameObject objectHud;
 	void Start(){
 		SpawnObject.DisableBuildMode ();
+		objectHud = SceneElements.GetObjectHud();
 	}
 	
 	public void SaveObject(){
@@ -14,15 +16,20 @@ public class ObjectManager : MonoBehaviour {
 	}
 
 	public void Flip(){
-		transform.rotation.Set (
-			transform.rotation.x, 
-			180f, 
-			transform.rotation.z,
-			transform.rotation.w);
+		if (transform.rotation.y == 0)
+			transform.rotation = Quaternion.Euler (new Vector3 (0, 180, 0));
+		else
+			transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
+		GetComponentInChildren<RectTransform>().rotation = Quaternion.Euler(new Vector3(0,0,0));
 	}
 
 	public void Delete(){
 		SpawnObject.EnableBuildMode ();
 		Destroy (this.gameObject);
+	}
+
+	public void ActiveObjectHud(){
+		objectHud.SetActive(true);
+		ObjectHudController.SetSelectedObject (this.gameObject);
 	}
 }
