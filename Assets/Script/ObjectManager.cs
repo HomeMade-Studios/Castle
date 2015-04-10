@@ -4,6 +4,9 @@ using System.Collections;
 public class ObjectManager : MonoBehaviour {
 
 	GameObject objectHud;
+	public GameObject save,flip,delete;
+
+
 	void Start(){
 		SpawnObject.DisableBuildMode ();
 		objectHud = SceneElements.GetObjectHud();
@@ -12,6 +15,9 @@ public class ObjectManager : MonoBehaviour {
 	public void SaveObject(){
 		gameObject.GetComponent<Rigidbody2D> ().gravityScale = 50;
 		gameObject.GetComponent<Collider2D> ().isTrigger = false;
+		save.SetActive (false);
+		flip.SetActive (false);
+		delete.SetActive (false);
 		SpawnObject.EnableBuildMode ();
 	}
 
