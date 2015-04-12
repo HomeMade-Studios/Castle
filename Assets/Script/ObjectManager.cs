@@ -4,21 +4,23 @@ using System.Collections;
 public class ObjectManager : MonoBehaviour {
 
 	GameObject objectHud;
-	public GameObject save,flip,delete;
+	public GameObject save, flip, delete, select;
 
 
 	void Start(){
-		SpawnObject.DisableBuildMode ();
+		SpawnObject.SetCanBuild (false);
 		objectHud = SceneElements.GetObjectHud();
 	}
 	
 	public void SaveObject(){
 		gameObject.GetComponent<Rigidbody2D> ().gravityScale = 50;
 		gameObject.GetComponent<Collider2D> ().isTrigger = false;
+		SpawnObject.SetCanBuild (true);
+		SpawnObject.SetSpawningObject (null);
 		save.SetActive (false);
 		flip.SetActive (false);
 		delete.SetActive (false);
-		SpawnObject.EnableBuildMode ();
+		select.SetActive (true);
 	}
 
 	public void Flip(){
@@ -30,7 +32,8 @@ public class ObjectManager : MonoBehaviour {
 	}
 
 	public void Delete(){
-		SpawnObject.EnableBuildMode ();
+		SpawnObject.SetCanBuild (true);
+		SpawnObject.SetSpawningObject (null);
 		Destroy (this.gameObject);
 	}
 

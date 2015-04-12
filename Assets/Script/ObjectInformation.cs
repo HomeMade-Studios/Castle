@@ -5,7 +5,7 @@ public class ObjectInformation : MonoBehaviour {
 
 	public int price, hp, damage;
 	public string id, description;
-
+	
 	public int GetPrice(){
 		return price;
 	}

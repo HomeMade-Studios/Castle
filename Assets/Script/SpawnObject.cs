@@ -6,17 +6,21 @@ public class SpawnObject : MonoBehaviour {
 	public static GameObject spawningObject;
 	public GameObject spawnedObject;
 	public Camera cam;
-	public static bool BuildMode;
+	public static bool canBuild = true, buildMode = false;
 
 	void Update () {
-		if (Input.GetMouseButtonDown (0)&&spawningObject!=null&&BuildMode) {
-			Spawn();
+		if (buildMode) {
+			if(spawningObject != null && canBuild){
+				if ((Input.GetMouseButtonDown (0)) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)) {
+					Spawn ();
+				}
+			}
 		}
 	}
 	 
 	void Spawn(){
-		Vector3 spawn=cam.ScreenToWorldPoint (Input.mousePosition);
-		spawn.z=0;
+		Vector3 spawn = cam.ScreenToWorldPoint (Input.mousePosition);
+		spawn.z = 0;
 		Instantiate (spawningObject, spawn, Quaternion.Euler (Vector3.zero));
 	}
 
@@ -24,15 +28,12 @@ public class SpawnObject : MonoBehaviour {
 		spawningObject = ObjectToSpawn;
 	}
 
-	public void SetBuildMode(bool Bool){
-		BuildMode = Bool;
+	public static void SetCanBuild(bool set){
+		canBuild = set;
 	}
 
-	public static void EnableBuildMode(){
-		BuildMode=true;
+	public static void SetBuilMode(bool set){
+		buildMode = set;
 	}
 
-	public static void DisableBuildMode(){
-		BuildMode = false;
-	}
 }
