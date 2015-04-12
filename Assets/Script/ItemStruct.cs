@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class ItemInfo {
+public struct ItemInfo {
 
 	private string itemID;
 	private string itemName;
@@ -13,6 +13,7 @@ public class ItemInfo {
 	private int itemAmountInInventory;
 	private GameObject gameObject;
 
+	/*
 	public ItemInfo(){
 		itemID = "UNDEFINED";
 		itemName = "UNDEFINED";
@@ -23,6 +24,7 @@ public class ItemInfo {
 		itemAmountInInventory = 0;
 		gameObject = null;
 	}
+	*/
 	
 	public string ID {
 		
