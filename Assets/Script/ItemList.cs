@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 using System.IO;
@@ -34,15 +35,12 @@ public class ItemList : MonoBehaviour {
 	}
 
 	void GetInfoFromFile(){
-		StreamReader itemInfoFile = new StreamReader("Assets\\ItemInfo.txt");
-		string inputLine;
-		
+		TextAsset itemInfoFile = Resources.Load("ItemInfo", typeof(TextAsset)) as TextAsset;
+		string[] inputLine = itemInfoFile.text.Split("\n"[0]);
 		for (int i = 0; i < itemList.Length; i++) {
-			inputLine = itemInfoFile.ReadLine();
-			SetInfo(inputLine, itemList[i]);
+			SetInfo(inputLine[i], itemList[i]);
 		}
-		
-		itemInfoFile.Close ();
+
 	}
 
 	void SetInfo(string inputLine, ItemInfo item){
@@ -52,6 +50,7 @@ public class ItemList : MonoBehaviour {
 				switch(info){
 					case 0:
 					item.ID = value;
+					GameObject.FindGameObjectWithTag("Finish").GetComponent<Text>().text = value;
 					break;
 
 					case 1:
@@ -76,7 +75,7 @@ public class ItemList : MonoBehaviour {
 				}
 				info++;
 			}
-			item.AmountInInventory = 0;
+			item.AmountInInventory = 2;
 			item.GameObject = Resources.Load(item.ID, typeof(GameObject)) as GameObject;
 		}
 	}
