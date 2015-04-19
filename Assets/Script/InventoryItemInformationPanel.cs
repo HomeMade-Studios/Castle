@@ -1,0 +1,42 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+
+public class InventoryItemInformationPanel : MonoBehaviour {
+
+	public Text itemName, itemDescription, itemHp, itemDamage;
+	public Button buildButton;
+	static string selectedItemID;
+	static ItemInfo selectedItemInformation;
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		UpdateInformation ();
+	}
+
+	void UpdateInformation(){
+		if (selectedItemID != null) {
+			itemName.text = selectedItemInformation.Name;
+			itemDescription.text = selectedItemInformation.Description;
+			itemHp.text = "Hp: " + selectedItemInformation.Hp.ToString ();
+			itemDamage.text = "Damage: " + selectedItemInformation.Damage.ToString ();
+			buildButton.interactable = true;
+		} else {
+			itemName.text = null;
+			itemDescription.text = null;
+			itemHp.text = null;
+			itemDamage.text = null;
+			buildButton.interactable = false;
+		}
+	}
+
+	public static void SetSelectedItem(string itemID){
+		selectedItemID = itemID;
+		selectedItemInformation = ItemListController.findItemInListByID (selectedItemID);
+	}
+}
