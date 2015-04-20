@@ -27,16 +27,23 @@ public class InventoryItemInformationPanel : MonoBehaviour {
 			itemDamage.text = "Damage: " + selectedItemInformation.Damage.ToString ();
 			buildButton.interactable = true;
 		} else {
-			itemName.text = null;
-			itemDescription.text = null;
-			itemHp.text = null;
-			itemDamage.text = null;
-			buildButton.interactable = false;
+			NullSelectedItem();
 		}
 	}
 
-	public static void SetSelectedItem(string itemID){
+	public void SetSelectedItem(string itemID){
 		selectedItemID = itemID;
-		selectedItemInformation = ItemListController.findItemInListByID (selectedItemID);
+		if (selectedItemID != null)
+			selectedItemInformation = ItemListController.findItemInListByID (selectedItemID);
+		else
+			NullSelectedItem ();
+	}
+
+	void NullSelectedItem(){
+		itemName.text = null;
+		itemDescription.text = null;
+		itemHp.text = null;
+		itemDamage.text = null;
+		buildButton.interactable = false;
 	}
 }
