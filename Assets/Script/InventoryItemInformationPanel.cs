@@ -26,7 +26,7 @@ public class InventoryItemInformationPanel : MonoBehaviour {
 	}
 
 	public void Build(){
-		SpawnItem.SetSpawningObject (ItemListController.findItemInListByID (selectedItemID).GameObject);
+		SpawnItem.SpawnAnItem(ItemListController.findItemInListByID (selectedItemID).GameObject);
 		SwitchMode.SwitchToBuildMode();
 	}
 

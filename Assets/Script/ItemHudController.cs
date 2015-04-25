@@ -4,23 +4,18 @@ using System.Collections;
 
 public class ItemHudController : MonoBehaviour {
 
-	public Text objectName, objectDescription, objectHp, objectDamage;
+	public Text itemName, itemDescription, itemHp, itemDamage;
 	static ItemInfo selectedItemInfo;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void Update(){
 		SetInformation ();
 	}
 
 	void SetInformation(){
-		objectName.text = selectedItemInfo.Name;
-		objectDescription.text = selectedItemInfo.Description;
-		objectHp.text = "HP: " + selectedItemInfo.Hp.ToString();
-		objectDamage.text = "Damage: " + selectedItemInfo.Damage.ToString();
+		itemName.text = selectedItemInfo.Name;
+		itemDescription.text = selectedItemInfo.Description;
+		itemHp.text = "HP: " + selectedItemInfo.Hp.ToString();
+		itemDamage.text = "Damage: " + selectedItemInfo.Damage.ToString();
 	}
 
 	public static void SetSelectedItem(string selectedItemID){
