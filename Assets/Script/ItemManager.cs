@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ObjectManager : MonoBehaviour {
+public class ItemManager : MonoBehaviour {
 
-	GameObject objectHud;
+	static GameObject managingItem;
 
 	void Start(){
-		SpawnObject.canBuild = false;
-		objectHud = SceneElements.GetObjectHud();
+		SpawnItem.canBuild = false;
 	}
 	
 	public void SaveObject(){
 		gameObject.GetComponent<Rigidbody2D> ().gravityScale = 50;
 		gameObject.GetComponent<Collider2D> ().isTrigger = false;
-		SpawnObject.canBuild = true;
-		SpawnObject.SetSpawningObject (null);
+		SpawnItem.canBuild = true;
+		SpawnItem.SetSpawningObject (null);
 	}
 
 	public void Flip(){
@@ -26,13 +25,13 @@ public class ObjectManager : MonoBehaviour {
 	}
 
 	public void Delete(){
-		SpawnObject.canBuild = true;
-		SpawnObject.SetSpawningObject (null);
+		SpawnItem.canBuild = true;
+		SpawnItem.SetSpawningObject (null);
 		Destroy (this.gameObject);
 	}
 
-	public void ActiveObjectHud(){
-		objectHud.SetActive(true);
-		ObjectHudController.SetSelectedObject (this.gameObject);
+	public static void SetManagingItem(GameObject selectedItem){
+		managingItem = selectedItem;
 	}
+	
 }

@@ -2,10 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ObjectHudController : MonoBehaviour {
+public class ItemHudController : MonoBehaviour {
 
 	public Text objectName, objectDescription, objectHp, objectDamage;
-	static ObjectInformation selectedObject;
+	static ItemInfo selectedItemInfo;
 	// Use this for initialization
 	void Start () {
 	
@@ -16,16 +16,15 @@ public class ObjectHudController : MonoBehaviour {
 		SetInformation ();
 	}
 
-	public static void SetSelectedObject(GameObject sendedObject){
-		selectedObject = sendedObject.GetComponent<ObjectInformation>();
-	}
-
 	void SetInformation(){
-		objectName.text = selectedObject.GetId ().ToString ();
-		objectDescription.text = selectedObject.GetDescription ().ToString();
-		objectHp.text = "HP: " + selectedObject.GetHp ().ToString();
-		objectDamage.text = "Damage: " + selectedObject.GetDamage ().ToString();
+		objectName.text = selectedItemInfo.Name;
+		objectDescription.text = selectedItemInfo.Description;
+		objectHp.text = "HP: " + selectedItemInfo.Hp.ToString();
+		objectDamage.text = "Damage: " + selectedItemInfo.Damage.ToString();
 	}
 
+	public static void SetSelectedItem(string selectedItemID){
+		selectedItemInfo = ItemListController.findItemInListByID(selectedItemID);
+	}
 
 }
