@@ -75,7 +75,6 @@ public class ItemListController : MonoBehaviour {
 		}
 		itemList[i].AmountInInventory = 1;
 		itemList[i].GameObject = Resources.Load(itemList[i].ID, typeof(GameObject)) as GameObject;
-	
 	}
 }
 

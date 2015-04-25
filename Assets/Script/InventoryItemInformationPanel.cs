@@ -9,12 +9,6 @@ public class InventoryItemInformationPanel : MonoBehaviour {
 	static string selectedItemID;
 	static ItemInfo selectedItemInformation;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
 	void Update () {
 		UpdateInformation ();
 	}
@@ -29,6 +23,11 @@ public class InventoryItemInformationPanel : MonoBehaviour {
 		} else {
 			NullSelectedItem();
 		}
+	}
+
+	public void Build(){
+		SpawnObject.SetSpawningObject (ItemListController.findItemInListByID (selectedItemID).GameObject);
+		SwitchMode.SwitchToBuildMode();
 	}
 
 	public void SetSelectedItem(string itemID){

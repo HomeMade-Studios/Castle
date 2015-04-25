@@ -10,12 +10,12 @@ public class InventoryListController : MonoBehaviour {
 	public Button filter1, filter2, filter3, filter4;
 	string currentFilter;
 
-	void Start (){
-		SetFilter ("0001");
-	}
-
 	void OnDisable(){
 		selectItem(null);
+	}
+
+	void OnEnable(){
+		SetFilter ("0001");
 	}
 
 	public void SetFilter (string newFilter){
@@ -50,8 +50,8 @@ public class InventoryListController : MonoBehaviour {
 			filter4.interactable = false;
 			break;
 		}
-
 		UpdateInventoryItemList ();
+		selectItem(null);
 	}
 
 	public void UpdateInventoryItemList(){
@@ -75,7 +75,6 @@ public class InventoryListController : MonoBehaviour {
 	}
 
 	public void selectItem(string referenceItemID){
-		print(referenceItemID);
 		itemInformationPanel.SetSelectedItem (referenceItemID);
 	}
 }
