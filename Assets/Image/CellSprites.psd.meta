@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: c469ec82323d54b41a62e28900bc6e9f
-timeCreated: 1430048648
+guid: 9c6076cdedab3d2428cab2e82648687f
+timeCreated: 1430052557
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SpriteSheetObject_0
-    21300002: SpriteSheetObject_1
+    21300000: Green
+    21300002: Red
+    21300004: Normal
+    21300006: CellSprites_0
+    21300008: CellSprites_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -45,34 +48,34 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 32
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings:
   - buildTarget: Android
-    maxTextureSize: 2048
-    textureFormat: -2
+    maxTextureSize: 1024
+    textureFormat: -1
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: SpriteSheetObject_0
+    - name: CellSprites_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 495
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 10
+        y: 0
+        width: 256
+        height: 256
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSheetObject_1
+    - name: CellSprites_1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 478
-        width: 16
-        height: 16
-      alignment: 0
+        x: 302
+        y: 0
+        width: 256
+        height: 256
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 

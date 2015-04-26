@@ -1,29 +1,32 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GridManager : MonoBehaviour {
 
-	public GameObject Cell;
-	float CellSize=32;
-	public bool ConstructMode;
-	public Sprite Wall;
+	public Transform grid;
+	public GameObject cell;
+	public int cellSize, col, row;
+	public Sprite wall;
 	public Camera cam;
 
 	void Start () {
 		cam = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Camera> ();
-		Create ();
+		CreateGrid ();
 	}
 
 	void Update(){
-		if (ConstructMode && Input.GetMouseButtonDown (0)) {
-			ChangeWall();
+		if (SwitchMode.BuildMode && Input.GetMouseButtonDown (0)) {
+			//ChangeWall();
 		}
 	}
 
-	public void Create(){
-		for (int i=0; i<=43; i++) {
-			for (int j=0; j<=22; j++) {
-				Instantiate(Cell,new Vector3(CellSize*i-687,j*CellSize+15),this.transform.rotation);
+	public void CreateGrid(){
+		Vector3 coord = new Vector3 (0,0,0);
+		for (int i=0; i<row; i++) {
+			for (int j=0; j<col; j++) {
+				coord = new Vector3(-cellSize * (col / 2) + cellSize * j, cellSize*i, 0);
+				GameObject temp = Instantiate(cell, coord, Quaternion.Euler(0,0,0)) as GameObject;
+				temp.transform.SetParent(grid);
 			}
 		}
 	}
@@ -32,7 +35,7 @@ public class GridManager : MonoBehaviour {
 		RaycastHit2D tmp= Physics2D.Raycast (cam.ScreenToWorldPoint(Input.mousePosition),Vector2.up);
 		if(tmp.transform.gameObject.tag=="Cell"){
 			if(tmp.transform.gameObject.GetComponent<SpriteRenderer>().sprite==null){
-				tmp.transform.gameObject.GetComponent<SpriteRenderer>().sprite = Wall;
+				tmp.transform.gameObject.GetComponent<SpriteRenderer>().sprite = wall;
 				print("Lecose");
 			}
 			else{

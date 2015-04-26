@@ -7,7 +7,7 @@ public class SwitchMode : MonoBehaviour {
 
 
 	static GameObject playObjectsReference, buildObjectsReference;
-	static string gameMode = "Play";
+	static bool buildMode = false;
 	public GameObject playObjects, buildObjects;
 
 
@@ -18,19 +18,21 @@ public class SwitchMode : MonoBehaviour {
 		buildObjectsReference.SetActive (false);
 	}
 
-	public static string GetGameMode(){
-		return gameMode;
+	public static bool BuildMode {
+		
+		get { return buildMode; }
+		
 	}
-	
+
 	public static void SwitchToBuildMode(){
 		playObjectsReference.SetActive (false);
 		buildObjectsReference.SetActive (true);
-		gameMode = "Build";
+		buildMode = true;
 	}
 
 	public static void SwitchToPlayMode(){
 		playObjectsReference.SetActive (true);
 		buildObjectsReference.SetActive (false);
-		gameMode = "Play";
+		buildMode = false;
 	}
 }
