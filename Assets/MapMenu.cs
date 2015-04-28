@@ -7,15 +7,16 @@ public class MapMenu : MonoBehaviour {
 	public Animator Character;
 	public Text Pos,resPerMin,ResMax,ResAcc,AtWork;
 	public int Position;
+	public Gathering gathered;
 
 	// Use this for initialization
 	void Start () {
-	
+		Position=PlayerPrefs.GetInt ("GatherPos");
+		StartAnim ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
 		switch (Position) {
 		case 0:
 			SetDefault();
@@ -40,14 +41,14 @@ public class MapMenu : MonoBehaviour {
 		Pos.text="Cave";
 		resPerMin.text="0.5 Rock/min";
 		ResMax.text="La cariola può contenere 480 rocce";
-		ResAcc.text = "Non va ancora un cazzo";
+		ResAcc.text = gathered.GetGathered()+" rocks gathered";
 	}
 
 	void SetForest(){
 		Pos.text="Forest";
 		resPerMin.text="10 Wood/min";
 		ResMax.text="La cariola può contenere 2400 legno";
-		ResAcc.text = "Non va ancora un cazzo";
+		ResAcc.text = gathered.GetGathered()+" wood gathered";
 	}
 
 	public void StartAnim(){
@@ -65,6 +66,7 @@ public class MapMenu : MonoBehaviour {
 			Character.SetBool("Cave",false);
 			break;
 		}
+		PlayerPrefs.SetInt ("GatherPos", Position);
 	}
 
 	public void SetPosition(int pos){
