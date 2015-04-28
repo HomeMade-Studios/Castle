@@ -34,6 +34,6 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void OpenMap(){
-		Application.LoadLevel ("Giampli");
+		Application.LoadLevel ("Map");
 	}
 }
