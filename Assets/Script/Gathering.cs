@@ -21,7 +21,7 @@ public class Gathering : MonoBehaviour {
 			gathered = 0;
 			break;
 		case 1:
-			gathered =PlayerPrefs.GetInt("TmpRock");
+			gathered =PlayerPrefs.GetInt("TmpStone");
 			break;
 		case 2:
 			gathered =PlayerPrefs.GetInt("TmpWood");
@@ -66,7 +66,7 @@ public class Gathering : MonoBehaviour {
 					gathered += (pastedTime/60);
 					if(gathered>=480)
 						gathered=480;
-					PlayerPrefs.SetInt("TmpRock",(int)(gathered));
+					PlayerPrefs.SetInt("TmpStone",(int)(gathered));
 					break;
 				case 2:
 						gathered += (pastedTime/6);
@@ -82,7 +82,7 @@ public class Gathering : MonoBehaviour {
 
 	public void ResetTmpRes(){
 		PlayerPrefs.SetInt("TmpWood",0);
-		PlayerPrefs.SetInt("TmpRock",0);
+		PlayerPrefs.SetInt("TmpStone",0);
 	}
 
 	public void Gather(){
@@ -90,13 +90,13 @@ public class Gathering : MonoBehaviour {
 		case 0:
 			break;
 		case 1:
-			PlayerPrefs.SetInt("Rock",PlayerPrefs.GetInt("Rock")+(int)(gathered));
+			PlayerPrefs.SetInt("Stone",PlayerPrefs.GetInt("Stone")+(int)(gathered));
 			break;
 		case 2:
 			PlayerPrefs.SetInt("Wood",PlayerPrefs.GetInt("Wood")+(int)(gathered));
 			break;
 		}
-		/*PlayerPrefs.SetInt("Rock",PlayerPrefs.GetInt("Rock")+(int)(gathered));
+		/*PlayerPrefs.SetInt("Stone",PlayerPrefs.GetInt("Stone")+(int)(gathered));
 		PlayerPrefs.SetInt("Wood",PlayerPrefs.GetInt("Wood")+(int)(gathered));*/
 		ResetTmpRes ();
 		gathered = 0;

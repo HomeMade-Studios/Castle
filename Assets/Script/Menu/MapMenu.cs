@@ -27,7 +27,7 @@ public class MapMenu : MonoBehaviour {
 			SetDefault();
 			break;
 		case 1:
-			visualGather=PlayerPrefs.GetInt("TmpRock");
+			visualGather=PlayerPrefs.GetInt("TmpStone");
 			SetCave();
 			break;
 		case 2:
@@ -46,9 +46,9 @@ public class MapMenu : MonoBehaviour {
 
 	void SetCave(){
 		Pos.text="Cave";
-		resPerMin.text="0.5 Rock/min";
+		resPerMin.text="0.5 Stone/min";
 		ResMax.text="La cariola può contenere 480 rocce";
-		ResAcc.text = visualGather+" rocks gathered";
+		ResAcc.text = visualGather+" stones gathered";
 	}
 
 	void SetForest(){
