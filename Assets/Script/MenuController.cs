@@ -1,39 +1,43 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MenuController : MonoBehaviour {
+	
+	public GameObject menu, inventoryPanel, craftPanel;	
+	public Button inventoryButton, craftButton;
 
-	public Animator anim;
-	public GameObject buildMenu, inventoryMenu, craftMenu;
+	public void OpenInventoryPanel(){
+		inventoryPanel.SetActive (true);
+		craftPanel.SetActive (false);
+		inventoryButton.interactable = false;
+		craftButton.interactable = true;
+	}
 
-	void Start (){
+	public void OpenCraftPanel(){
+		craftPanel.SetActive (true);
+		inventoryPanel.SetActive (false);
+		inventoryButton.interactable = true;
+		craftButton.interactable = false;
+	}
+
+	public void OpenCloseMenu(){
+		if (!menu.activeSelf) {
+			menu.SetActive (true);
+			OpenInventoryPanel();
+		} else {
+			craftPanel.SetActive (false);
+			inventoryPanel.SetActive (false);
+			menu.SetActive (false);
+		}
 
 	}
 
-	public void OpenInventoryMenu(){
-		inventoryMenu.SetActive (true);
-		buildMenu.SetActive (false);
-		craftMenu.SetActive (false);
-		anim.SetBool ("Open", true);
+	public void CloseMenu(){
+		
 	}
 
-	public void OpenBuildMenu(){
-		buildMenu.SetActive (true);
-		inventoryMenu.SetActive (false);
-		craftMenu.SetActive (false);
-		anim.SetBool ("Open", true);
-	}
 
-	public void OpenCraftMenu(){
-		craftMenu.SetActive (true);
-		buildMenu.SetActive (false);
-		inventoryMenu.SetActive (false);
-		anim.SetBool ("Open", true);
-	}
-
-	public void CloseAllMenu(){
-		anim.SetBool ("Open", false);
-	}
 
 
 
