@@ -47,28 +47,40 @@ public class ItemListController : MonoBehaviour {
 		int info = 0;
 		foreach(string value in inputLine.Split('	')){
 			switch(info){
-				case 0:
+			case 0:
 				itemList[i].ID = value;
 				break;
 			
-				case 1:
+			case 1:
 				itemList[i].Name = value;
 				break;
 
-				case 2:
+			case 2:
 				itemList[i].Description = value;
 				break;
 
-				case 3:
-				itemList[i].Price = Convert.ToInt32(value);
-				break;
-
-				case 4:
+			case 3:
 				itemList[i].Damage = Convert.ToInt32(value);
 				break;
 
-				case 5:
+			case 4:
 				itemList[i].Hp = Convert.ToInt32(value);
+				break;
+
+			case 5:
+				itemList[i].GoldPrice = Convert.ToInt32(value);
+				break;
+
+			case 6:
+				itemList[i].WoodPrice = Convert.ToInt32(value);
+				break;
+
+			case 7:
+				itemList[i].StonePrice = Convert.ToInt32(value);
+				break;
+
+			case 8:
+				itemList[i].MetalPrice = Convert.ToInt32(value);
 				break;
 			}
 			info++;

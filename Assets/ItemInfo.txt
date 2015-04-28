@@ -1,2 +1,0 @@
-00010000	Wooden Chair	A wooden chair	100	0	0
-00010001	Wooden Table	A wooden table	100	0	0

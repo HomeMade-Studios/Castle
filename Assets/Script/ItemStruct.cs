@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -7,24 +7,14 @@ public struct ItemInfo {
 	private string itemID;
 	private string itemName;
 	private string itemDescription;
-	private int itemPrice;
 	private int itemDamage;
 	private int itemHp;
+	private int goldPrice;
+	private int woodPrice;
+	private int stonePrice;
+	private int metalPrice;
 	private int itemAmountInInventory;
 	private GameObject gameObject;
-
-	/*
-	public ItemInfo(){
-		itemID = "UNDEFINED";
-		itemName = "UNDEFINED";
-		itemDescription = "UNDEFINED";
-		itemPrice = 0;
-		itemDamage = 0;
-		itemHp = 0;
-		itemAmountInInventory = 0;
-		gameObject = null;
-	}
-	*/
 	
 	public string ID {
 		
@@ -50,14 +40,6 @@ public struct ItemInfo {
 		
 	}
 
-	public int Price {
-		
-		get { return itemPrice; }
-		
-		set { itemPrice = value; }
-		
-	}
-
 	public int Damage {
 		
 		get { return itemDamage; }
@@ -71,6 +53,38 @@ public struct ItemInfo {
 		get { return itemHp; }
 		
 		set { itemHp = value; }
+		
+	}
+
+	public int GoldPrice {
+		
+		get { return goldPrice; }
+		
+		set { goldPrice = value; }
+		
+	}
+
+	public int WoodPrice {
+		
+		get { return woodPrice; }
+		
+		set { woodPrice = value; }
+		
+	}
+
+	public int StonePrice {
+		
+		get { return stonePrice; }
+		
+		set { stonePrice = value; }
+		
+	}
+
+	public int MetalPrice {
+		
+		get { return metalPrice; }
+		
+		set { metalPrice = value; }
 		
 	}
 
