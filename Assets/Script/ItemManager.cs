@@ -6,8 +6,6 @@ public class ItemManager : MonoBehaviour {
 	static GameObject managingItem;
 
 	public void Save(){
-		managingItem.GetComponent<Rigidbody2D> ().gravityScale = 50;
-		managingItem.GetComponent<Collider2D> ().isTrigger = false;
 		managingItem = null;
 	}
 
@@ -25,8 +23,6 @@ public class ItemManager : MonoBehaviour {
 
 	public static void SetManagingItem (GameObject selectedItem){
 		managingItem = selectedItem;
-		managingItem.GetComponent<Rigidbody2D> ().gravityScale = 0;
-		managingItem.GetComponent<Collider2D> ().isTrigger = true;
 	}
 	
 }
