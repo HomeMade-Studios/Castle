@@ -96,11 +96,18 @@ public class Gathering : MonoBehaviour {
 			PlayerPrefs.SetInt("Wood",PlayerPrefs.GetInt("Wood")+(int)(gathered));
 			break;
 		}
+		/*PlayerPrefs.SetInt("Rock",PlayerPrefs.GetInt("Rock")+(int)(gathered));
+		PlayerPrefs.SetInt("Wood",PlayerPrefs.GetInt("Wood")+(int)(gathered));*/
+		ResetTmpRes ();
 		gathered = 0;
 	}
 
 	public int GetGathered(){
 		return (int) gathered;
+	}
+
+	public int GetPosition(){
+		return WhatGathered;
 	}
 
 }
