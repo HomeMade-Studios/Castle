@@ -9,7 +9,7 @@ public class Gathering : MonoBehaviour {
 	public double gathered;
 	bool changeGather;
 	public bool reset;
-	WWW www;
+	WWW timeSite;
 
 	// Use this for initialization
 	void Start () {
@@ -28,8 +28,7 @@ public class Gathering : MonoBehaviour {
 			break;
 		}
 	}
-	
-	// Update is called once per frame
+
 	void UpdateTime () {
 		int tmpGatherPos = PlayerPrefs.GetInt ("GatherPos");
 		if (WhatGathered != tmpGatherPos) {
@@ -42,9 +41,9 @@ public class Gathering : MonoBehaviour {
 
 	IEnumerator getTime()
 	{
-		www = new WWW("http://homemadestudios.altervista.org/time/time.php");
-		yield return www;
-		alterTime= Convert.ToInt32(www.text);
+		timeSite = new WWW("http://homemadestudios.altervista.org/time/time.php");
+		yield return timeSite;
+		alterTime = Convert.ToInt32(timeSite.text);
 		CalcGathered ();
 
 	}
