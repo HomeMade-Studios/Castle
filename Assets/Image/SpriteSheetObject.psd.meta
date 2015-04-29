@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c469ec82323d54b41a62e28900bc6e9f
-timeCreated: 1430048648
+timeCreated: 1430334593
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -63,7 +63,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SpriteSheetObject_1
       rect:

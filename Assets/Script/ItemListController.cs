@@ -85,8 +85,9 @@ public class ItemListController : MonoBehaviour {
 			}
 			info++;
 		}
-		itemList[i].AmountInInventory = 1;
-		itemList[i].GameObject = Resources.Load(itemList[i].ID, typeof(GameObject)) as GameObject;
+		itemList [i].AmountInInventory = 1;
+		itemList [i].GameObject = Resources.Load(itemList[i].ID, typeof(GameObject)) as GameObject;
+		itemList [i].Sprite = itemList [i].GameObject.GetComponent<SpriteRenderer> ().sprite;
 	}
 }
 

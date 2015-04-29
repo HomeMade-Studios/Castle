@@ -15,6 +15,7 @@ public struct ItemInfo {
 	private int metalPrice;
 	private int itemAmountInInventory;
 	private GameObject gameObject;
+	private Sprite sprite;
 	
 	public string ID {
 		
@@ -101,6 +102,14 @@ public struct ItemInfo {
 		get { return gameObject; }
 		
 		set { gameObject = value; }
+		
+	}
+
+	public Sprite Sprite {
+		
+		get { return sprite; }
+		
+		set { sprite = value; }
 		
 	}
 	
