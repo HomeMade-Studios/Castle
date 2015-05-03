@@ -99,7 +99,7 @@ public class ItemListController : MonoBehaviour {
 			}
 			info++;
 		}
-		itemList [i].AmountInInventory = 0;
+		itemList [i].AmountInInventory = 1;
 		itemList [i].GameObject = Resources.Load(itemList[i].ID, typeof(GameObject)) as GameObject;
 		if (itemList [i].GameObject != null)
 			itemList [i].Sprite = itemList [i].GameObject.GetComponent<SpriteRenderer> ().sprite;
