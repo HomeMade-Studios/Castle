@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
-public struct ItemInfo {
+public class ItemInfo {
 
 	private string itemID;
 	private string itemName;
@@ -13,6 +14,7 @@ public struct ItemInfo {
 	private int woodPrice;
 	private int stonePrice;
 	private int metalPrice;
+	private List<ItemNeeded> itemsNeeded;
 	private int itemAmountInInventory;
 	private GameObject gameObject;
 	private Sprite sprite;
@@ -89,6 +91,14 @@ public struct ItemInfo {
 		
 	}
 
+	public List<ItemNeeded> ItemsNeeded {
+		
+		get { return itemsNeeded; }
+		
+		set { itemsNeeded = value; }
+		
+	}
+
 	public int AmountInInventory {
 		
 		get { return itemAmountInInventory; }
@@ -112,5 +122,30 @@ public struct ItemInfo {
 		set { sprite = value; }
 		
 	}
-	
+}
+
+public struct ItemNeeded{
+	private string itemID;
+	private int amount;
+
+	public ItemNeeded(string newItemID, int newAmount){
+		itemID = newItemID;
+		amount = newAmount;
+	}
+
+	public string ItemID {
+		
+		get { return itemID; }
+		
+		set { itemID = value; }
+		
+	}
+
+	public int Amount {
+		
+		get { return amount; }
+		
+		set { amount = value; }
+		
+	}
 }

@@ -4,10 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.IO;
+using System.Linq;
 
 public class ItemListController : MonoBehaviour {
 	
-	public static ItemInfo[] itemList = new ItemInfo[2];
+	public static List<ItemInfo> itemList = new List<ItemInfo>();
 
 	void Start () {
 		GetInfoFromFile ();
@@ -15,7 +16,7 @@ public class ItemListController : MonoBehaviour {
 
 	public static ItemInfo findItemInListByID(string itemID){
 		ItemInfo selectedObject = new ItemInfo();
-		for (int i = 0; i < itemList.Length; i++) {
+		for (int i = 0; i < itemList.Count; i++) {
 			if(itemList[i].ID == itemID){
 				selectedObject = itemList[i];
 				break;
@@ -26,7 +27,7 @@ public class ItemListController : MonoBehaviour {
 
 	public static List<ItemInfo> findItemsInListByType(string itemsType){
 		List<ItemInfo> selectedObjects = new List<ItemInfo>();
-		for (int i = 0; i < itemList.Length; i++) {
+		for (int i = 0; i < itemList.Count; i++) {
 			if(itemList[i].ID.StartsWith(itemsType)){
 				selectedObjects.Add(itemList[i]);
 			}
@@ -36,9 +37,12 @@ public class ItemListController : MonoBehaviour {
 
 	void GetInfoFromFile(){
 		TextAsset itemInfoFile = Resources.Load("ItemInfo", typeof(TextAsset)) as TextAsset;
-		string[] inputLine = itemInfoFile.text.Split("\n"[0]);
-		for (int i = 0; i < itemList.Length; i++) {
-			SetInfo(inputLine[i], i);
+		int i = 0;
+		string[] stringSeparators = new string[] { "\r\n" };
+		foreach (string inputLine in itemInfoFile.text.Split (stringSeparators, StringSplitOptions.RemoveEmptyEntries).Skip(1)) {
+			itemList.Add(new ItemInfo());
+			SetInfo(inputLine, i);
+			i++;
 		}
 
 	}
@@ -82,15 +86,22 @@ public class ItemListController : MonoBehaviour {
 			case 8:
 				itemList[i].MetalPrice = Convert.ToInt32(value);
 				break;
+
+			case 9:
+				List<ItemNeeded> temp = new List<ItemNeeded>();
+				foreach (string itemIDAndAmount in value.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries)){
+					string itemNeededID = itemIDAndAmount.Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries)[0];
+					int itemNeededAmount = Convert.ToInt32(itemIDAndAmount.Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries)[1]);
+					temp.Add (new ItemNeeded(itemNeededID, itemNeededAmount));
+				}
+				itemList[i].ItemsNeeded = temp;
+				break;
 			}
 			info++;
 		}
-		itemList [i].AmountInInventory = 1;
+		itemList [i].AmountInInventory = 0;
 		itemList [i].GameObject = Resources.Load(itemList[i].ID, typeof(GameObject)) as GameObject;
-		itemList [i].Sprite = itemList [i].GameObject.GetComponent<SpriteRenderer> ().sprite;
+		if (itemList [i].GameObject != null)
+			itemList [i].Sprite = itemList [i].GameObject.GetComponent<SpriteRenderer> ().sprite;
 	}
 }
-
-
-
-
