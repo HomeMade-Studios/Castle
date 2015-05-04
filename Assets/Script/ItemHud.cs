@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class ItemHudController : MonoBehaviour {
+public class ItemHud : MonoBehaviour {
 
 	public Text itemName, itemDescription, itemHp, itemDamage;
 	static ItemInfo selectedItemInfo;
@@ -19,7 +19,7 @@ public class ItemHudController : MonoBehaviour {
 	}
 
 	public static void SetSelectedItem(string selectedItemID){
-		selectedItemInfo = ItemListController.findItemInListByID(selectedItemID);
+		selectedItemInfo = ItemList.findItemInListByID(selectedItemID);
 	}
 
 }

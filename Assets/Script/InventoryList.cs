@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class InventoryListController : MonoBehaviour {
+public class InventoryList : MonoBehaviour {
 
 	public GameObject inventoryListButton , itemScrollContent;
 	public InventoryItemInformationPanel itemInformationPanel;
@@ -56,7 +56,7 @@ public class InventoryListController : MonoBehaviour {
 
 	public void UpdateInventoryItemList(){
 		Transform list = itemScrollContent.transform;
-		List<ItemInfo> newList = ItemListController.findItemsInListByType (currentFilter);
+		List<ItemInfo> newList = ItemList.findItemsInListByType (currentFilter);
 		GameObject createdButton;
 		
 		foreach (Transform child in list) {		//delete all list
