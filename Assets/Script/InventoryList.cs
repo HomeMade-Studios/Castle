@@ -64,16 +64,14 @@ public class InventoryList : MonoBehaviour {
 		}
 		
 		foreach (ItemInfo itemInfo in newList){		//recreate the list
-			if(itemInfo.AmountInInventory > 0){
-				string localItemInfoID = itemInfo.ID;
-				createdButton = Instantiate (inventoryListButton, new Vector3(0,0,0), Quaternion.identity) as GameObject;
-				createdButton.transform.SetParent(list);
-				createdButton.transform.localScale = new Vector3(1,1,1);
-				createdButton.transform.FindChild("Item Name").GetComponent<Text>().text = itemInfo.Name;
-				createdButton.transform.FindChild("Item Quantity").GetComponent<Text>().text = itemInfo.AmountInInventory.ToString();
-				createdButton.GetComponent<Button>().onClick.AddListener(delegate{selectItem(localItemInfoID);}); //imposta la funzione sull'OnClick del bottone e il relativo parametro (referenceItemID)
-				createdButton.transform.FindChild("Item Image").GetComponent<Image>().sprite = itemInfo.Sprite;
-			}
+			string localItemInfoID = itemInfo.ID;
+			createdButton = Instantiate (inventoryListButton, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+			createdButton.transform.SetParent(list);
+			createdButton.transform.localScale = new Vector3(1,1,1);
+			createdButton.transform.FindChild("Item Name").GetComponent<Text>().text = itemInfo.Name;
+			createdButton.transform.FindChild("Item Quantity").GetComponent<Text>().text = itemInfo.AmountInInventory.ToString();
+			createdButton.GetComponent<Button>().onClick.AddListener(delegate{selectItem(localItemInfoID);}); //imposta la funzione sull'OnClick del bottone e il relativo parametro (referenceItemID)
+			createdButton.transform.FindChild("Item Image").GetComponent<Image>().sprite = itemInfo.Sprite;
 		}
 	}
 

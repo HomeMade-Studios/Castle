@@ -2,17 +2,17 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class InventoryItemInformationPanel : MonoBehaviour {
-
+public class CraftItemInformationPanel : MonoBehaviour {
+	
 	public Text itemName, itemDescription, itemHp, itemDamage;
 	public Button buildButton;
 	static string selectedItemID;
 	static ItemInfo selectedItemInformation;
-
+	
 	void Update () {
 		UpdateInformation ();
 	}
-
+	
 	void UpdateInformation(){
 		if (selectedItemID != null) {
 			itemName.text = selectedItemInformation.Name;
@@ -24,20 +24,20 @@ public class InventoryItemInformationPanel : MonoBehaviour {
 			NullSelectedItem();
 		}
 	}
-
+	
 	public void Build(){
-		SpawnItem.SpawnAnItem(ItemListController.findItemInListByID (selectedItemID).GameObject);
+		SpawnItem.SpawnAnItem(ItemList.findItemInListByID (selectedItemID).GameObject);
 		SwitchMode.SwitchToBuildMode();
 	}
-
+	
 	public void SetSelectedItem(string itemID){
 		selectedItemID = itemID;
 		if (selectedItemID != null)
-			selectedItemInformation = ItemListController.findItemInListByID (selectedItemID);
+			selectedItemInformation = ItemList.findItemInListByID (selectedItemID);
 		else
 			NullSelectedItem ();
 	}
-
+	
 	void NullSelectedItem(){
 		itemName.text = null;
 		itemDescription.text = null;
