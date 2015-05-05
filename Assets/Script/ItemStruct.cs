@@ -14,6 +14,7 @@ public class ItemInfo {
 	private int woodPrice;
 	private int stonePrice;
 	private int metalPrice;
+	private int premiumPrice;
 	private List<ItemNeeded> itemsNeeded;
 	private int itemAmountInInventory;
 	private GameObject gameObject;
@@ -88,6 +89,14 @@ public class ItemInfo {
 		get { return metalPrice; }
 		
 		set { metalPrice = value; }
+		
+	}
+
+	public int PremiumPrice {
+		
+		get { return premiumPrice; }
+		
+		set { premiumPrice = value; }
 		
 	}
 
