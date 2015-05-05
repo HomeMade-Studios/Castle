@@ -88,6 +88,10 @@ public class ItemList : MonoBehaviour {
 				break;
 
 			case 9:
+				itemList[i].PremiumPrice = Convert.ToInt32(value);
+				break;
+
+			case 10:
 				List<ItemNeeded> temp = new List<ItemNeeded>();
 				foreach (string itemIDAndAmount in value.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries)){
 					string itemNeededID = itemIDAndAmount.Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries)[0];
@@ -99,7 +103,7 @@ public class ItemList : MonoBehaviour {
 			}
 			info++;
 		}
-		itemList [i].AmountInInventory = 1;
+		itemList [i].AmountInInventory = 0;
 		itemList [i].GameObject = Resources.Load(itemList[i].ID, typeof(GameObject)) as GameObject;
 		if (itemList [i].GameObject != null)
 			itemList [i].Sprite = itemList [i].GameObject.GetComponent<SpriteRenderer> ().sprite;
