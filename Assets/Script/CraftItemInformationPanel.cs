@@ -15,7 +15,6 @@ public class CraftItemInformationPanel : MonoBehaviour {
 	
 	void Update () {
 		//UpdateInformation ();
-		PlayerPrefs.SetInt ("Wood", 10);
 	}
 	
 	void UpdateInformation(){
