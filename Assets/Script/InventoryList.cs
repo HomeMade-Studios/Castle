@@ -64,7 +64,7 @@ public class InventoryList : MonoBehaviour {
 		}
 		
 		foreach (ItemInfo itemInfo in newList) {	
-			if (itemInfo.AmountInInventory > 0) {//recreate the list
+			if (PlayerPrefs.GetInt("item" + itemInfo.ID + "AmountInInventory") > 0) {//recreate the list
 				string localItemInfoID = itemInfo.ID;
 				createdButton = Instantiate (listButton, new Vector3 (0, 0, 0), Quaternion.identity) as GameObject;
 				createdButton.transform.SetParent (list);
