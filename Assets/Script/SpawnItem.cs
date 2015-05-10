@@ -7,6 +7,6 @@ public class SpawnItem : MonoBehaviour {
 		Camera cam = FindObjectOfType (typeof(Camera)) as Camera;
 		Vector3 spawnPoint = cam.ScreenToWorldPoint (cam.pixelRect.center);
 		spawnPoint.z = 0;
-		ItemManager.SetManagingItem(Instantiate (itemToSpawn, spawnPoint, Quaternion.Euler(0,0,0)) as GameObject);
+		ItemManager.SetManagingItem(Instantiate (itemToSpawn, spawnPoint, Quaternion.Euler(0,0,0)) as GameObject, true);
 	}
 }
