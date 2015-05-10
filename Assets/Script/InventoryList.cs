@@ -8,19 +8,22 @@ public class InventoryList : MonoBehaviour {
 	public GameObject listButton , itemScrollContent;
 	public InventoryItemInformationPanel itemInformationPanel;
 	public Button filter1, filter2, filter3, filter4;
-	string currentFilter;
 
 	void OnDisable(){
 		selectItem(null);
 	}
 
 	void OnEnable(){
-		SetFilter ("0004");
+		UpdateFilter ();
 	}
 
 	public void SetFilter (string newFilter){
-		currentFilter = newFilter;
-		switch (currentFilter) {
+		PlayerPrefs.SetString ("listFilter", newFilter);
+		UpdateFilter ();
+	}
+
+	public void UpdateFilter (){
+		switch (PlayerPrefs.GetString("listFilter")) {
 
 		case "0001":
 			filter1.interactable = false;
@@ -56,7 +59,7 @@ public class InventoryList : MonoBehaviour {
 
 	public void UpdateItemList(){
 		Transform list = itemScrollContent.transform;
-		List<ItemInfo> newList = ItemList.findItemsInListByType (currentFilter);
+		List<ItemInfo> newList = ItemList.findItemsInListByType (PlayerPrefs.GetString("listFilter"));
 		GameObject createdButton;
 		
 		foreach (Transform child in list) {		//delete all list
