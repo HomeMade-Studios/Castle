@@ -23,9 +23,11 @@ public class Menus : MonoBehaviour {
 
 	public void OpenCloseMenu(){
 		if (!menu.activeSelf) {
+            CameraUserMovement.setCanMove(false);
 			menu.SetActive (true);
 			OpenInventoryPanel();
 		} else {
+            CameraUserMovement.setCanMove(true);
 			craftPanel.SetActive (false);
 			inventoryPanel.SetActive (false);
 			menu.SetActive (false);
